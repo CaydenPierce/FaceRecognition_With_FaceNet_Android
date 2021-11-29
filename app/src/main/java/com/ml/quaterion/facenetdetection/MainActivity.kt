@@ -44,6 +44,7 @@ import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.LifecycleOwner
 import com.google.common.util.concurrent.ListenableFuture
 import com.ml.quaterion.facenetdetection.model.FaceNetModel
+import com.ml.quaterion.facenetdetection.model.Models
 import java.io.*
 import java.util.concurrent.Executors
 
@@ -101,8 +102,8 @@ class MainActivity : AppCompatActivity() {
         boundingBoxOverlay.setWillNotDraw( false )
         boundingBoxOverlay.setZOrderOnTop( true )
 
-        frameAnalyser = FrameAnalyser( this , boundingBoxOverlay)
-        fileReader = FileReader( this )
+        frameAnalyser = FrameAnalyser( this , boundingBoxOverlay, Models.FACENET_512_QUANTIZED )
+        fileReader = FileReader( this, Models.FACENET_512_QUANTIZED );
 
 
         // We'll only require the CAMERA permission from the user.
